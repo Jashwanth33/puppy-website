@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { WHATSAPP_URL, PHONE_TEL, PHONE_DISPLAY, EMAIL_HREF, EMAIL_DISPLAY } from './links';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[0-9\s()+\-]{7,20}$/;
@@ -85,11 +86,13 @@ export default function Contact() {
               <p>Sat & Sun, 10am – 5pm (by appointment)</p>
             </div>
             <div className="info-card">
-              <h3>Call or text</h3>
+              <h3>WhatsApp, call or text</h3>
               <p>
-                <a href="tel:+15125550147">(512) 555-0147</a>
+                <a href={WHATSAPP_URL}>WhatsApp us</a>
                 <br />
-                <a href="mailto:hello@pawtailpups.com">hello@pawtailpups.com</a>
+                <a href={PHONE_TEL}>{PHONE_DISPLAY}</a>
+                <br />
+                <a href={EMAIL_HREF}>{EMAIL_DISPLAY}</a>
               </p>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import { WHATSAPP_URL } from './links';
+
 const STRIP = [
   { src: '/images/puppy-1.jpg', alt: 'Golden retriever puppy resting its paws on a garden fence' },
   { src: '/images/puppy-2.jpg', alt: 'German shepherd puppy carrying a stick across the lawn' },
@@ -28,8 +30,8 @@ export default function Hero() {
             <a className="btn btn-primary" href="#puppies">
               Meet the puppies
             </a>
-            <a className="btn btn-outline" href="#contact">
-              Book a visit
+            <a className="btn btn-outline" href={WHATSAPP_URL}>
+              WhatsApp us
             </a>
           </div>
         </div>

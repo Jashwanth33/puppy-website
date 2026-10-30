@@ -1,3 +1,5 @@
+import { WHATSAPP_URL, PHONE_TEL, PHONE_DISPLAY, EMAIL_HREF, EMAIL_DISPLAY, SOCIALS } from './links';
+
 const EXPLORE = [
   { href: '#puppies', label: 'Available puppies' },
   { href: '#journey', label: 'How it works' },
@@ -6,12 +8,41 @@ const EXPLORE = [
   { href: '#contact', label: 'Visit & contact' },
 ];
 
-/* TODO: swap these placeholders for the brand's real social profiles. */
-const SOCIALS = [
-  { label: 'Pawtail Pups on Instagram', href: '#' },
-  { label: 'Pawtail Pups on Facebook', href: '#' },
-  { label: 'Pawtail Pups on TikTok', href: '#' },
-];
+/* Inline social icons — one per network, no icon-font requests. */
+function SocialIcon({ name }) {
+  const p = {
+    width: 18,
+    height: 18,
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    'aria-hidden': true,
+  };
+  if (name === 'facebook') {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5H16.6V4.4A21 21 0 0014.4 4c-2.3 0-3.9 1.4-3.9 4v2.5H8v3h2.5V21h3z" />
+      </svg>
+    );
+  }
+  if (name === 'tiktok') {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M16.2 3c.4 2.3 1.8 3.7 4.1 3.9v2.9c-1.5.1-3-.3-4.2-1.2v6.3a6.1 6.1 0 11-6.1-6.1c.3 0 .7 0 1 .1v3a3.1 3.1 0 102.1 3V3h3.1z" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...p}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 /**
  * Photo credits (Wikimedia Commons, placeholders until brand photos arrive):
@@ -48,12 +79,14 @@ export default function Footer() {
           </p>
           <div className="socials">
             {SOCIALS.map((s) => (
-              <a key={s.label} href={s.href} aria-label={s.label}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-                </svg>
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+              >
+                <SocialIcon name={s.icon} />
               </a>
             ))}
           </div>
@@ -74,10 +107,13 @@ export default function Footer() {
           <h3>Say hello</h3>
           <ul className="footer-links">
             <li>
-              <a href="tel:+15125550147">Call (512) 555-0147</a>
+              <a href={WHATSAPP_URL}>WhatsApp {PHONE_DISPLAY}</a>
             </li>
             <li>
-              <a href="mailto:hello@pawtailpups.com">hello@pawtailpups.com</a>
+              <a href={PHONE_TEL}>Call {PHONE_DISPLAY}</a>
+            </li>
+            <li>
+              <a href={EMAIL_HREF}>{EMAIL_DISPLAY}</a>
             </li>
             <li>1420 Oak Ridge Ln, Austin, TX 78704</li>
             <li>Sat &amp; Sun, 10am – 5pm</li>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { WHATSAPP_URL } from './links';
 
 /* Inline paw-print logo mark */
 function PawMark() {
@@ -84,8 +85,8 @@ export default function Header() {
           </a>
         </nav>
 
-        <a className="btn btn-primary header-cta" href="#contact">
-          Book a visit
+        <a className="btn btn-primary header-cta" href={WHATSAPP_URL}>
+          WhatsApp us
         </a>
 
         <button

@@ -1,3 +1,5 @@
+import { WHATSAPP_URL } from './links';
+
 /* Final CTA banner — dark brown panel with the star puppy photo. */
 export default function CtaBanner() {
   return (
@@ -12,11 +14,11 @@ export default function CtaBanner() {
               health records, honest advice, and no pressure.
             </p>
             <div className="cta-actions">
-              <a className="btn btn-primary" href="#contact">
-                Start a conversation
+              <a className="btn btn-primary" href={WHATSAPP_URL}>
+                Enquire on WhatsApp
               </a>
-              <a className="btn btn-light" href="tel:+15125550147">
-                Call (512) 555-0147
+              <a className="btn btn-light" href="#contact">
+                Visit &amp; contact
               </a>
             </div>
           </div>
